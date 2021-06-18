@@ -1,0 +1,945 @@
+     main {
+         .banner {
+             width: 100%;
+             height: 600px;
+             position: relative;
+             .banner__item {
+                 width: 100%;
+                 height: 100%;
+                 object-fit: cover;
+                 position: relative;
+                 max-width: $max-width;
+                 &--img {
+                     width: 100%;
+                     height: 100%;
+                 }
+             }
+             @include sm {
+                 height: 450px;
+             }
+             @include xs {
+                 height: 400px;
+             }
+         }
+         .products-title {
+             text-align: center;
+             .products-des {
+                 .description {
+                     margin: 0 80px;
+                 }
+             }
+             @include xs {
+                 .products-des {
+                     .title {
+                         padding-bottom: 10px;
+                     }
+                     .description {
+                         margin: 0;
+                     }
+                 }
+             }
+         }
+         .all-products {
+             &__tags {
+                 &-text {
+                     display: flex;
+                     align-items: center;
+                     margin-bottom: 40px;
+                     .tag {
+                         font-family: SFUR;
+                         text-transform: uppercase;
+                         font-size: 50px;
+                         color: #7f7f7f;
+                         cursor: pointer;
+                         &:last-child {
+                             padding-left: 30px;
+                             position: relative;
+                             &::before {
+                                 content: "";
+                                 width: 200%;
+                                 bottom: 0;
+                                 position: absolute;
+                                 right: -205%;
+                                 background-color: #000;
+                                 height: 2px;
+                             }
+                         }
+                         &:not(:last-child) {
+                             &::after {
+                                 content: "";
+                                 border-right: 2px solid #000;
+                                 padding-left: 30px;
+                             }
+                         }
+                         &:hover {
+                             transition: 0.3s;
+                             color: $black-cl;
+                         }
+                         &.active {
+                             color: $black-cl;
+                             transition: 0.3s;
+                         }
+                     }
+                 }
+                 .tag-table {
+                     display: none;
+                     &.active {
+                         display: block;
+                     }
+                 }
+             }
+             .list-1 {
+                 .all-products-grid {
+                     padding: 50px 0;
+                     display: block;
+                     .all-products__items {
+                         position: relative;
+                         display: flex;
+                         .all-products-img {
+                             z-index: 11;
+                             object-fit: cover;
+                             img {
+                                 position: relative;
+                                 margin-left: -100px;
+                             }
+                         }
+                         .all-products-description {
+                             padding-left: 40px;
+                             position: relative;
+                             z-index: 10;
+                             h3 {
+                                 font-style: italic;
+                                 margin-top: 40px;
+                             }
+                             h4 {
+                                 font-style: italic;
+                                 font-size: 18px;
+                                 line-height: 1.2;
+                                 letter-spacing: 0.4px;
+                                 margin: 10px 0;
+                             }
+                             &::after {
+                                 content: "";
+                                 width: 820px;
+                                 height: 510px;
+                                 background: #f8f8f8;
+                                 transform: skew( -10deg, 0deg);
+                                 -webkit-transform: skew( -10deg, 0deg);
+                                 -o-transform: skew(-10deg, 0deg);
+                                 top: 0px;
+                                 right: -50px;
+                                 position: absolute;
+                                 z-index: -2;
+                             }
+                         }
+                         .list-products {
+                             width: 625px;
+                             bottom: 0;
+                             z-index: 10;
+                             margin-top: 50px;
+                             .choose-product {
+                                 height: 200px;
+                                 .info-product {
+                                     position: absolute;
+                                     .name {
+                                         font-size: 20px;
+                                         margin-bottom: 0px;
+                                         margin-top: 0;
+                                         position: relative;
+                                         font-weight: 800;
+                                         font-family: SFUR;
+                                         text-transform: uppercase;
+                                     }
+                                     .small-img-product {
+                                         img {
+                                             width: 100%;
+                                             height: 118px;
+                                         }
+                                     }
+                                     .infor-sell {
+                                         .price-sale {
+                                             font-size: 14px;
+                                             font-weight: 800;
+                                             font-family: SFUR;
+                                             text-transform: uppercase;
+                                         }
+                                         .price {
+                                             font-size: 30px;
+                                             text-transform: uppercase;
+                                             font-weight: 800;
+                                             font-family: SFUR;
+                                         }
+                                         &::before {
+                                             content: "";
+                                             width: 2px;
+                                             height: 41px;
+                                             float: left;
+                                             background: #000;
+                                             margin-right: 10px;
+                                             position: relative;
+                                             bottom: -4px;
+                                         }
+                                     }
+                                     .btn-products {
+                                         @include centerAbsolute;
+                                         z-index: 50;
+                                         opacity: 0;
+                                         transition: all $t;
+                                         .btn-pro {
+                                             display: inline-block;
+                                             margin: 5px 0;
+                                             width: 120px;
+                                             @include xs {
+                                                 font-size: 16px;
+                                             }
+                                         }
+                                     }
+                                     &:hover {
+                                         .btn-products {
+                                             opacity: 1;
+                                         }
+                                     }
+                                 }
+                             }
+                             .slick-prev,
+                             .slick-next {
+                                 opacity: 0;
+                                 visibility: hidden;
+                                 position: absolute;
+                                 top: 30%;
+                                 display: block;
+                                 border: none;
+                                 color: #f8f8f8;
+                                 background-color: #f8f8f8;
+                                 z-index: -2;
+                                 transition: 0.3s;
+                                 &::after {
+                                     content: "";
+                                     background-color: red;
+                                     width: 40px;
+                                     height: 40px;
+                                     display: block;
+                                     position: absolute;
+                                     top: 0;
+                                     transform: skew( -12deg);
+                                     z-index: 10;
+                                 }
+                                 &.active {
+                                     opacity: 1;
+                                     visibility: visible;
+                                     transition: 0.3s;
+                                 }
+                             }
+                             .slick-prev {
+                                 left: -40px;
+                                 &::before {
+                                     content: "";
+                                     background: url(/img/arrow2.png) no-repeat center;
+                                     top: 7px;
+                                     right: 20px;
+                                     width: 24px;
+                                     height: 26px;
+                                     position: absolute;
+                                     font-size: 0;
+                                     z-index: 12;
+                                 }
+                             }
+                             .slick-next {
+                                 right: -20px;
+                                 &::before {
+                                     content: "";
+                                     background: url(/img/arrow1.png) no-repeat center;
+                                     top: 7px;
+                                     left: 10px;
+                                     width: 24px;
+                                     height: 26px;
+                                     position: absolute;
+                                     font-size: 0;
+                                     z-index: 12;
+                                 }
+                             }
+                         }
+                     }
+                     @include xs {
+                         .all-products__items {
+                             &-link {
+                                 .all-products-img {
+                                     height: 100px;
+                                 }
+                             }
+                             &-description {
+                                 height: 40px;
+                                 @include overtext(2);
+                             }
+                         }
+                     }
+                     @include xxs {
+                         grid-template-columns: 1fr;
+                         row-gap: 30px;
+                         .all-products__items {
+                             &-link {
+                                 .all-products-img {
+                                     height: 200px;
+                                 }
+                                 h3 {
+                                     height: initial;
+                                     @include overtext(1);
+                                 }
+                             }
+                         }
+                     }
+                     &:nth-child(even) {
+                         padding: 0;
+                         .all-products__items {
+                             margin-left: -100px;
+                             flex-direction: row-reverse;
+                             .all-products-img {
+                                 margin-right: -150px;
+                             }
+                             .all-products-description {
+                                 h4 {
+                                     margin-right: 60px;
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+             .list-2 {
+                 .chonxe-title {
+                     padding-top: 50px;
+                     padding-bottom: 100px;
+                 }
+                 .choosing-car {
+                     display: flex;
+                     .title-s {
+                         font-size: 30px;
+                         padding-right: 15px;
+                         margin-top: 35px;
+                         font-family: SFUR;
+                     }
+                     .selected {
+                         background-color: red;
+                         border: none;
+                         color: $white-cl;
+                         .type {
+                             color: $white-cl !important;
+                         }
+                         .icon {
+                             .i1 {
+                                 opacity: 0 !important;
+                             }
+                             .i2 {
+                                 opacity: 1 !important;
+                             }
+                         }
+                     }
+                     .loaixe {
+                         width: 50%;
+                         position: relative;
+                         display: flex;
+                         width: 50%;
+                         .list-xe {
+                             display: flex;
+                             .item-xe {
+                                 width: 100px;
+                                 height: 100px;
+                                 position: relative;
+                                 border: 1px solid #000;
+                                 text-align: center;
+                                 margin: 0 15px;
+                                 cursor: pointer;
+                                 .icon {
+                                     text-align: center;
+                                     cursor: pointer;
+                                     img {
+                                         top: 20px;
+                                         position: absolute;
+                                         left: 50%;
+                                         transform: translateX(-50%);
+                                     }
+                                     .i1 {
+                                         opacity: 1;
+                                     }
+                                     .i2 {
+                                         opacity: 0;
+                                     }
+                                 }
+                                 .type {
+                                     position: absolute;
+                                     margin: 10px 0;
+                                     bottom: 0px;
+                                     left: 50%;
+                                     transform: translateX(-50%);
+                                     color: $white-cl;
+                                     font-size: 18px;
+                                     width: 100%;
+                                     text-transform: uppercase;
+                                     font-family: SFUR;
+                                     color: $black-cl;
+                                 }
+                                 &:hover {
+                                     background-color: red;
+                                     color: $white-cl;
+                                     .type {
+                                         color: $white-cl;
+                                     }
+                                     .icon {
+                                         .i1 {
+                                             opacity: 0;
+                                         }
+                                         .i2 {
+                                             opacity: 1;
+                                         }
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                     .dongco {
+                         width: 50%;
+                         display: flex;
+                         position: relative;
+                         .list-dong-co {
+                             display: flex;
+                             .item-dong-co {
+                                 width: 100px;
+                                 height: 100px;
+                                 position: relative;
+                                 border: 1px solid #000;
+                                 text-align: center;
+                                 margin: 0 15px;
+                                 cursor: pointer;
+                                 .text-w {
+                                     width: 100%;
+                                     position: absolute;
+                                     top: 50%;
+                                     transform: translateY(-50%);
+                                     text-align: center;
+                                 }
+                                 .t1,
+                                 .t2,
+                                 .t3,
+                                 .t4 {
+                                     font-family: SFUR;
+                                     text-transform: uppercase;
+                                 }
+                                 .t1 {
+                                     font-size: 30px;
+                                 }
+                                 .t2 {
+                                     font-size: 68px;
+                                     line-height: 45px;
+                                 }
+                                 .t3 {
+                                     font-size: 36px;
+                                     line-height: 36px;
+                                 }
+                                 .t4 {
+                                     font-size: 18px;
+                                     margin-top: 5px;
+                                     line-height: 18px;
+                                 }
+                                 .icon {
+                                     text-align: center;
+                                     cursor: pointer;
+                                     img {
+                                         top: 20px;
+                                         position: absolute;
+                                         left: 50%;
+                                         transform: translateX(-50%);
+                                     }
+                                     .i1 {
+                                         opacity: 1;
+                                     }
+                                     .i2 {
+                                         opacity: 0;
+                                     }
+                                 }
+                                 .type {
+                                     position: absolute;
+                                     margin: 10px 0;
+                                     bottom: 0px;
+                                     left: 50%;
+                                     transform: translateX(-50%);
+                                     color: $white-cl;
+                                     font-size: 18px;
+                                     width: 100%;
+                                     text-transform: uppercase;
+                                     font-family: SFUR;
+                                     color: $black-cl;
+                                 }
+                                 &:hover {
+                                     background-color: red;
+                                     color: $white-cl;
+                                     .type {
+                                         color: $white-cl;
+                                     }
+                                     .icon {
+                                         .i1 {
+                                             opacity: 0;
+                                         }
+                                         .i2 {
+                                             opacity: 1;
+                                         }
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                 }
+                 .line {
+                     width: 100%;
+                     display: table;
+                     height: 1px;
+                     background: #ddd;
+                     margin: 50px 0;
+                 }
+                 .choosing-price {
+                     margin-top: 50px;
+                     .range-price {
+                         position: relative;
+                         .t-small {
+                             font-size: 30px;
+                             font-family: SFUR;
+                             color: #000;
+                             text-transform: uppercase;
+                             margin-bottom: 0;
+                             @include xs {
+                                 font-size: 24px;
+                             }
+                         }
+                         .text-left {
+                             text-align: left;
+                         }
+                         .text-right {
+                             text-align: right;
+                         }
+                         .price {
+                             font-size: 40px;
+                             font-family: SFUR;
+                             color: #000;
+                             text-transform: uppercase;
+                             @include xs {
+                                 font-size: 28px;
+                             }
+                         }
+                     }
+                     //thune
+                     .slider-labels {
+                         margin-top: 10px;
+                         display: flex;
+                         justify-content: space-between;
+                     }
+                     /* Functional styling;
+                       * These styles are required for noUiSlider to function.
+                       * You don't need to change these rules to apply your design.
+                       */
+                     .noUi-target,
+                     .noUi-target * {
+                         -webkit-touch-callout: none;
+                         -webkit-user-select: none;
+                         -ms-touch-action: none;
+                         touch-action: none;
+                         -ms-user-select: none;
+                         -moz-user-select: none;
+                         user-select: none;
+                         -moz-box-sizing: border-box;
+                         box-sizing: border-box;
+                     }
+                     .noUi-target {
+                         position: relative;
+                         direction: ltr;
+                     }
+                     .thuxiu {
+                         width: 570px;
+                         @include centerAbsolute;
+                     }
+                     .noUi-base {
+                         width: 100%;
+                         height: 100%;
+                         position: relative;
+                         z-index: 1;
+                         /* Fix 401 */
+                     }
+                     .noUi-origin {
+                         position: absolute;
+                         right: 0;
+                         top: 0;
+                         left: 0;
+                         bottom: 0;
+                     }
+                     .noUi-handle {
+                         position: relative;
+                         z-index: 1;
+                     }
+                     .noUi-stacking .noUi-handle {
+                         /* This class is applied to the lower origin when
+                         its values is > 50%. */
+                         z-index: 10;
+                     }
+                     .noUi-state-tap .noUi-origin {
+                         -webkit-transition: left 0.3s, top .3s;
+                         transition: left 0.3s, top .3s;
+                     }
+                     .noUi-state-drag * {
+                         cursor: inherit !important;
+                     }
+                     /* Painting and performance;
+                       * Browsers can paint handles in their own layer.
+                       */
+                     .noUi-base,
+                     .noUi-handle {
+                         -webkit-transform: translate3d(0, 0, 0);
+                         transform: translate3d(0, 0, 0);
+                     }
+                     /* Slider size and handle placement;
+                       */
+                     .noUi-horizontal {
+                         height: 2px;
+                     }
+                     .noUi-horizontal .noUi-handle {
+                         width: 15px;
+                         height: 15px;
+                         border-radius: 50%;
+                         left: -7px;
+                         top: -12px;
+                         border: 6px solid $red-cl;
+                         background-color: #b41710;
+                         cursor: pointer;
+                     }
+                     /* Styling;
+                       */
+                     .noUi-background {
+                         background: $black-cl;
+                     }
+                     .noUi-connect {
+                         background: none;
+                         -webkit-transition: background 450ms;
+                         transition: background 450ms;
+                     }
+                     .noUi-origin {
+                         border-radius: 2px;
+                     }
+                     .noUi-target {
+                         border-radius: 2px;
+                     }
+                     .noUi-target.noUi-connect {}
+                     /* Handles and cursors;
+                       */
+                     .noUi-draggable {
+                         cursor: w-resize;
+                     }
+                     .noUi-vertical .noUi-draggable {
+                         cursor: n-resize;
+                     }
+                     .noUi-handle {
+                         cursor: default;
+                         -webkit-box-sizing: content-box !important;
+                         -moz-box-sizing: content-box !important;
+                         box-sizing: content-box !important;
+                     }
+                     .noUi-handle:active {
+                         //  border: 8px solid #345DBB;
+                         //  border: 8px solid rgba(53, 93, 187, 0.38);
+                         -webkit-background-clip: padding-box;
+                         background-clip: padding-box;
+                         left: -14px;
+                         top: -12px;
+                         cursor: pointer;
+                     }
+                     /* Disabled state;
+                       */
+                     [disabled].noUi-connect,
+                     [disabled] .noUi-connect {
+                         background: #B8B8B8;
+                     }
+                     [disabled].noUi-origin,
+                     [disabled] .noUi-handle {
+                         cursor: not-allowed;
+                     }
+                 }
+                 .choosing-sex {
+                     text-align: center;
+                     .list-sex {
+                         display: flex;
+                         justify-content: center;
+                         margin: 20px 0 40px 0;
+                         .selected {
+                             background-color: red;
+                             border: none;
+                             color: $white-cl;
+                             .type {
+                                 color: $white-cl !important;
+                             }
+                             .icon {
+                                 .i1 {
+                                     opacity: 0 !important;
+                                 }
+                                 .i2 {
+                                     opacity: 1 !important;
+                                 }
+                             }
+                         }
+                         .item-gioi-tinh {
+                             width: 100px;
+                             height: 100px;
+                             position: relative;
+                             border: 1px solid #000;
+                             text-align: center;
+                             margin: 0 15px;
+                             cursor: pointer;
+                             .icon {
+                                 text-align: center;
+                                 cursor: pointer;
+                                 img {
+                                     top: 5px;
+                                     position: absolute;
+                                     left: 50%;
+                                     transform: translateX(-50%);
+                                 }
+                                 .i1 {
+                                     opacity: 1;
+                                 }
+                                 .i2 {
+                                     opacity: 0;
+                                 }
+                             }
+                             .type {
+                                 position: absolute;
+                                 margin: 10px 0;
+                                 bottom: 0px;
+                                 left: 50%;
+                                 transform: translateX(-50%);
+                                 color: $white-cl;
+                                 font-size: 18px;
+                                 width: 100%;
+                                 text-transform: uppercase;
+                                 font-family: SFUR;
+                                 color: $black-cl;
+                             }
+                             &:hover {
+                                 background-color: red;
+                                 color: $white-cl;
+                                 .type {
+                                     color: $white-cl;
+                                 }
+                                 .icon {
+                                     .i1 {
+                                         opacity: 0;
+                                     }
+                                     .i2 {
+                                         opacity: 1;
+                                     }
+                                 }
+                             }
+                         }
+                         .icon {
+                             img {
+                                 top: 7px;
+                             }
+                         }
+                         .t {
+                             width: 100%;
+                             text-transform: uppercase;
+                             font-family: SFUR;
+                             font-size: 18px;
+                             position: absolute;
+                             margin: 5px 0;
+                             bottom: 0px;
+                             left: 50%;
+                             transform: translateX(-50%);
+                         }
+                     }
+                 }
+             }
+             @include sm {
+                 &__tags {
+                     &-text {
+                         justify-content: center;
+                         .tag {
+                             font-size: 40px;
+                             &::before {
+                                 display: none;
+                             }
+                         }
+                     }
+                 }
+                 .list-1 {
+                     .all-products-grid {
+                         .all-products__items {
+                             .all-products-img {
+                                 text-align: center;
+                                 img {
+                                     width: 445px;
+                                     height: 445px;
+                                     margin-left: -80px;
+                                 }
+                             }
+                             .all-products-description {
+                                 padding-left: 20px;
+                                 .title {
+                                     .break {
+                                         display: inline-block;
+                                     }
+                                 }
+                                 .description {
+                                     width: 90%;
+                                     font-size: 18px;
+                                 }
+                                 &::after {
+                                     width: 800px;
+                                     height: 400px;
+                                     right: -30px;
+                                 }
+                                 .list-products {
+                                     margin-top: 20px;
+                                     width: 550px;
+                                     .slick-track {
+                                         width: 915px;
+                                         height: 193px;
+                                         .slick-slide {
+                                             height: 125px;
+                                         }
+                                     }
+                                     .info-product {
+                                         img {
+                                             max-width: 90%;
+                                             height: auto;
+                                         }
+                                     }
+                                 }
+                                 &::after {
+                                     display: none;
+                                 }
+                             }
+                         }
+                         &:nth-child(even) {
+                             padding: 0;
+                             .all-products__items {
+                                 margin-left: 0px;
+                             }
+                         }
+                     }
+                 }
+                 .list-2 {
+                     .item {
+                         width: 90px;
+                         height: 100px;
+                     }
+                     .choosing-car {
+                         .title-s {
+                             font-size: 25px;
+                             padding-right: 5px;
+                             margin-top: 35px;
+                             font-family: SFUR;
+                         }
+                     }
+                     .choosing-price {
+                         .range-price {
+                             .price {
+                                 font-size: 30px;
+                             }
+                         }
+                     }
+                 }
+             }
+             @include xs {
+                 &__tags {
+                     &-text {
+                         justify-content: center;
+                         .tag {
+                             font-size: 24px;
+                             &::before {
+                                 display: none;
+                             }
+                         }
+                     }
+                 }
+                 .list-1 {
+                     .all-products-grid {
+                         .all-products__items {
+                             display: block;
+                             .all-products-img {
+                                 img {
+                                     margin: 0;
+                                 }
+                             }
+                         }
+                         &:nth-child(even) {
+                             padding: 0;
+                             .all-products__items {
+                                 .all-products-img {
+                                     img {
+                                         margin-left: -200px;
+                                     }
+                                 }
+                             }
+                             .all-products-description {
+                                 .list-products {
+                                     .slick-track {
+                                         width: 915px !important;
+                                         transform: translate3d(0px, 0px, 0px) !important;
+                                     }
+                                 }
+                             }
+                         }
+                         &:last-child {
+                             .all-products-description {
+                                 .list-products {
+                                     .slick-track {
+                                         width: 915px !important;
+                                         transform: translate3d(0px, 0px, 0px) !important;
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                 }
+                 .list-2 {
+                     .chonxe-title {
+                         padding-top: 10px;
+                         padding-bottom: 30px;
+                     }
+                     .choosing-car {
+                         display: block;
+                         .title-s {
+                             margin-bottom: 20px;
+                             font-size: 30px;
+                         }
+                         .loaixe {
+                             display: block;
+                             width: 100%;
+                             text-align: center;
+                             .list-xe {
+                                 justify-content: center;
+                             }
+                         }
+                         .dongco {
+                             display: block;
+                             width: 100%;
+                             text-align: center;
+                             .list-dong-co {
+                                 justify-content: center;
+                             }
+                         }
+                     }
+                     .choosing-price {
+                         .thuxiu {
+                             width: 300px;
+                             margin-top: 50px;
+                         }
+                         .range-price {
+                             .slider-labels {
+                                 margin-top: -120px;
+                                 .text-right,
+                                 .text-left {
+                                     margin-top: 200px;
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+         }
+     }

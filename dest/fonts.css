@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'UTMR';
+    src: url('../fonts/UTMAvo.woff') format('woff2'), url('../fonts/UTMAvo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'UTMB';
+    src: url('../fonts/UTMAvoBold.woff') format('woff2'), url('../fonts/UTMAvoBold.woff2') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'SFUR';
+    src: url('../fonts/SFUDINEngAlt.woff') format('woff2'), url('../fonts/SFUDINEngAlt.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'SFUB';
+    src: url('../fonts/SFUDINLight.woff') format('woff2'), url('../fonts/SFUDINLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'GMVD';
+    src: url('../fonts/GMVDINPro-Bold.woff') format('woff2'), url('../fonts/GMVDINPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'MyP';
+    src: url('../fonts/MyriadPro-BlackSemiCn.woff') format('woff2'), url('../fonts/MyriadPro-BlackSemiCn.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: fallback;
+}

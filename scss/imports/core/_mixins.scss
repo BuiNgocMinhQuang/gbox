@@ -1,0 +1,141 @@
+@mixin lg {
+    @media screen and (max-width: $lg-max) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media screen and (max-width: $md-max) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media screen and (max-width: $sm-max) {
+        @content;
+    }
+}
+
+@mixin xs {
+    @media screen and (max-width: $xs-max) {
+        @content;
+    }
+}
+
+@mixin xxs {
+    @media screen and (max-width: $xxs-max) {
+        @content;
+    }
+}
+
+// Landscape
+@mixin mdX {
+    @media screen and (max-width: $md-max) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin smX {
+    @media screen and (max-width: $sm-max) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin text($font-size, $font-family, $line-height, $color, $text-transform) {
+    font-size: $font-size;
+    font-family: $font-family;
+    line-height: $line-height;
+    color: $color;
+    text-transform: $text-transform;
+}
+
+@mixin animation($str) {
+    animation: #{$str};
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+}
+
+@mixin transform($args) {
+    transform: $args;
+    -webkit-transform: $args;
+    -moz-transform: $args;
+    -ms-transform: $args;
+    -o-transform: $args;
+}
+
+@mixin transform-origin($args) {
+    transform-origin: $args;
+    -webkit-transform-origin: $args;
+    -moz-transform-origin: $args;
+    -ms-transform-origin: $args;
+    -o-transform-origin: $args;
+}
+
+@mixin transition-delay($args) {
+    transition-delay: $args;
+    -webkit-transition-delay: $args;
+    -moz-transition-delay: $args;
+    -ms-transition-delay: $args;
+    -o-transition-delay: $args;
+}
+
+@mixin transition($args) {
+    transition: $args;
+    -webkit-transition-: $args;
+    -moz-transition-: $args;
+    -ms-transition: $args;
+    -o-transition-: $args;
+}
+
+@mixin overtext($lines) {
+    display: -webkit-inline-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@mixin visible($hidden: 1) {
+    @if $hidden==1 {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    @else {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@mixin centerAbsolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin centerImage {
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}

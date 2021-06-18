@@ -1,0 +1,42 @@
+// Primary Colors
+$white-cl: #fff;
+$black-cl: #000;
+$red-cl: #f4352c;
+// Global Text Color
+$text-cl: #010101;
+$gray-cl: #d8d8d8;
+// Global Background color
+$main-bg-cl: #fff;
+// Time Transition
+$t: 0.5s;
+$cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
+// Font Families
+$font-stack: "Open Sans",
+sans-serif;
+$font-main: "pr";
+// Heading typo
+$fz-text: 16px;
+$lh-text: 20px;
+$fz-text-m: 16px;
+$lh-text-m: normal;
+html,
+body {
+    --heightHeader: 80px;
+}
+
+// GRID - Media Queries Breakpoints
+$xxs-min: 568px;
+$xs-min: 770px;
+$sm-min: 1100px;
+$md-min: 1200px;
+$lg-min: 1600px;
+$xxs-max: $xxs-min - 1;
+$xs-max: $xs-min - 1;
+$sm-max: $sm-min - 1;
+$md-max: $md-min - 1;
+$lg-max: $lg-min - 1;
+// Boxed Layouts
+$max-width: 1920px;
+$container-max-width: $max-width;
+$container-width: 1010px;
+$colors: ( red: #6d0012, green: #617941, black: #282a2b);

@@ -1,0 +1,793 @@
+main {
+    .banner {
+        width: 100%;
+        height: 600px;
+        position: relative;
+        .banner__item {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            max-width: $max-width;
+            // display: none;
+            // &.active {
+            //     display: block;
+            // }
+            .banner__detail--img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .banner-360 {
+            display: none;
+            z-index: 201;
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            position: fixed;
+            top: 0;
+            background-color: rgba(000, 0, 0, 0.9);
+            padding-top: 100px;
+            .cloudimage-inner-box {
+                width: 100%;
+                text-align: center;
+                canvas {
+                    width: 1000px !important;
+                    height: 100% !important;
+                }
+                img {
+                    width: 50% !important;
+                }
+                @include sm {
+                    canvas {
+                        width: 800px !important;
+                        height: 100% !important;
+                    }
+                }
+                @include xs {
+                    canvas {
+                        width: 100% !important;
+                        height: 100% !important;
+                    }
+                }
+            }
+            .cloudimage-360 {
+                .cloudimage-360-prev:focus,
+                .cloudimage-360-next:focus {
+                    outline: none;
+                }
+                .cloudimage-360-prev {
+                    display: block;
+                    position: absolute;
+                    z-index: 100;
+                    top: calc(50% - 50px);
+                    left: 20px;
+                }
+                .cloudimage-360-next {
+                    display: block;
+                    position: absolute;
+                    z-index: 100;
+                    top: calc(50% - 50px);
+                    right: 20px;
+                }
+                .cloudimage-360-prev:before,
+                .cloudimage-360-next:before {
+                    content: "";
+                    display: block;
+                    width: 280px;
+                    height: 180px;
+                    background: 100% 100% / cover no-repeat;
+                }
+                .cloudimage-360-prev:before {
+                    background-image: url('../img/ct-left.png');
+                }
+                .cloudimage-360-next:before {
+                    background-image: url('../img/ct-right.png');
+                }
+                .btn-close {
+                    z-index: 220;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    position: absolute;
+                    right: 5%;
+                    top: -5%;
+                    span {
+                        @include centerAbsolute;
+                        z-index: 12;
+                        color: white;
+                        text-align: center;
+                        font-size: 36px;
+                        font-weight: bold;
+                    }
+                    &::before {
+                        content: "";
+                        width: 75%;
+                        height: 75%;
+                        border-radius: 50%;
+                        background: rgba(244, 53, 44, 0.7);
+                        margin: auto;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        position: absolute;
+                    }
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        background: rgba(244, 53, 44, 0.6);
+                        margin: auto;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        position: absolute;
+                        z-index: 11;
+                    }
+                }
+                @include sm {
+                    .cloudimage-360-prev {
+                        left: 10px;
+                    }
+                    .cloudimage-360-next {
+                        right: 10px;
+                    }
+                    .cloudimage-360-prev:before,
+                    .cloudimage-360-next:before {
+                        content: "";
+                        display: block;
+                        width: 180px;
+                        height: 120px;
+                        background: 100% 100% / cover no-repeat;
+                    }
+                    .cloudimage-360-prev:before {
+                        background-image: url('/img/ct-left.png');
+                    }
+                    .cloudimage-360-next:before {
+                        background-image: url('/img/ct-right.png');
+                    }
+                }
+                @include xs {
+                    .cloudimage-360-prev {
+                        left: 10px;
+                    }
+                    .cloudimage-360-next {
+                        right: 10px;
+                    }
+                    .cloudimage-360-prev:before,
+                    .cloudimage-360-next:before {
+                        content: "";
+                        display: block;
+                        width: 50px;
+                        height: 50px;
+                        background: 50% 50% / cover no-repeat;
+                    }
+                    .cloudimage-360-prev:before {
+                        background-image: url('/img/ct-left.png');
+                    }
+                    .cloudimage-360-next:before {
+                        background-image: url('/img/ct-right.png');
+                    }
+                    .btn-close {
+                        left: 50%;
+                        top: -50%;
+                        transform: translateX(-50%);
+                        span {
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+            &.active {
+                display: block;
+            }
+        }
+        .img-product {
+            z-index: 10;
+            .btn-360 {
+                position: absolute;
+                top: 75%;
+                left: 50%;
+                transform: translate(-50%);
+                cursor: pointer;
+                z-index: 12;
+            }
+            .pro {
+                display: none;
+            }
+            img {
+                position: absolute;
+                bottom: -20%;
+                left: 50%;
+                transform: translate(-50%);
+            }
+            .current-pro {
+                display: block;
+            }
+        }
+        @include sm {
+            height: 600px;
+            .banner-360 {
+                padding-top: 300px;
+            }
+            .img-product {
+                .pro {
+                    img {
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .btn-360 {
+                    bottom: 20%;
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+            }
+        }
+        @include xs {
+            height: 500px;
+            .banner-360 {
+                padding-top: 300px;
+            }
+            .img-product {
+                .pro {
+                    img {
+                        align-items: center;
+                        width: 100%;
+                        height: 90%;
+                    }
+                }
+                .btn-360 {
+                    bottom: 20%;
+                    img {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+            }
+        }
+    }
+    .pro-info {
+        .choosing-color {
+            .colors {
+                display: flex;
+                justify-content: center;
+                .color {
+                    @each $current,
+                    $color in $colors {
+                        &--#{$current} {
+                            background-color: $color;
+                        }
+                    }
+                }
+                .item-cl {
+                    width: 50px;
+                    height: 50px;
+                    margin: 0 5px;
+                    border: 1px solid #000;
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                    z-index: 1;
+                }
+                .selected {
+                    border: 3px solid #000;
+                }
+            }
+        }
+        .des-pro {
+            margin-top: 60px;
+            .info-box {
+                padding-bottom: 50px;
+                .title {
+                    font-size: 80px;
+                }
+                .description {
+                    font-size: 30px;
+                    font-family: UTMB;
+                    margin-bottom: 30px;
+                }
+                .text-w {
+                    font-size: 18px;
+                    letter-spacing: 0.4px;
+                    line-height: 1.2;
+                }
+                &::after {
+                    content: "";
+                    width: 80px;
+                    height: 2px;
+                    background: #000;
+                    margin: 50px auto -10px auto;
+                    display: block;
+                }
+            }
+            .price-box {
+                .t-small {
+                    font-size: 34px;
+                    text-transform: uppercase;
+                    font-family: SFUR;
+                    letter-spacing: 0.4px;
+                    line-height: 38px;
+                }
+                .price {
+                    display: none;
+                    font-size: 70px;
+                    text-transform: uppercase;
+                    font-family: SFUR;
+                    &.active {
+                        display: block;
+                    }
+                }
+            }
+            .specifications-box {
+                display: flex;
+                margin: 80px 0;
+                .img-w {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .specifications {
+                    width: 100%;
+                    padding-left: 40px;
+                    .title {
+                        margin-bottom: 20px;
+                    }
+                    .item {
+                        width: 100%;
+                        .head {
+                            width: 100%;
+                            display: flex;
+                            cursor: pointer;
+                            padding: 15px 0;
+                            .text {
+                                white-space: nowrap;
+                                font-size: 34px;
+                                text-transform: uppercase;
+                                font-family: SFUR;
+                            }
+                            .line {
+                                width: 100%;
+                                height: 2px;
+                                background: #000;
+                                margin-right: 25px;
+                                margin-top: 30px;
+                            }
+                            .icon-plus {
+                                width: 20px;
+                                height: 20px;
+                                position: relative;
+                                margin-top: 20px;
+                                flex-shrink: 0;
+                                &::before {
+                                    content: "";
+                                    width: 100%;
+                                    height: 4px;
+                                    background: #000;
+                                    display: inline-block;
+                                    position: absolute;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    transition: $t;
+                                }
+                                &::after {
+                                    content: "";
+                                    width: 100%;
+                                    height: 4px;
+                                    background: #000;
+                                    display: inline-block;
+                                    position: absolute;
+                                    top: 50%;
+                                    transform: translateY(-50%) rotate( 90deg);
+                                    transition: $t;
+                                }
+                            }
+                        }
+                        .content {
+                            display: none;
+                            height: auto;
+                            width: 100%;
+                            font-size: 16px;
+                            line-height: 22px;
+                            @include transition(transform 0.3s);
+                        }
+                        &.active {
+                            .head {
+                                .icon-plus {
+                                    &::after {
+                                        @include transform(rotate(0deg) translateY(-50%));
+                                        @include transition(transform 0.3s);
+                                    }
+                                }
+                            }
+                            .content {
+                                display: block;
+                                @include transition(transform 0.3s);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include xs {
+            .choosing-color {
+                .colors {
+                    .item-cl {
+                        width: 40px;
+                        height: 40px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+            .des-pro {
+                .info-box {
+                    .title {
+                        font-size: 60px;
+                    }
+                    .description {
+                        font-size: 24px;
+                    }
+                }
+                .price-box {
+                    .t-small {
+                        font-size: 28px;
+                    }
+                    .price {
+                        font-size: 50px;
+                    }
+                }
+                .specifications-box {
+                    display: block;
+                    margin: 50px 0;
+                    .img-w {
+                        width: 100%;
+                        height: 100%;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .specifications {
+                        padding: 0;
+                        .title {
+                            margin: 30px 0;
+                        }
+                        .tab-expand {
+                            .item {
+                                .head {
+                                    .text {
+                                        font-size: 26px;
+                                    }
+                                    .line {
+                                        height: 1px;
+                                        margin-top: 25px;
+                                    }
+                                    .icon-plus {
+                                        width: 15px;
+                                        height: 15px;
+                                        margin-top: 15px;
+                                    }
+                                }
+                                .content {
+                                    .text {
+                                        font-size: 18px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .feature {
+        .sumenh {
+            margin: 50px 0 80px;
+            @include transition(0.5s);
+            &.active {
+                &::before {
+                    width: 500px;
+                    @include transition(0.5s);
+                }
+            }
+            position: relative;
+            &::before {
+                @include transition(0.5s);
+                display: block;
+                position: absolute;
+                top: 100px;
+                content: "";
+                height: 2px;
+                top: 20%;
+                width: 0px;
+                background-color: $black-cl;
+            }
+            .container {
+                display: flex;
+                position: relative;
+                .su-menh-des {
+                    position: relative;
+                    left: 0;
+                    height: 450px;
+                    width: 450px;
+                    z-index: 10;
+                    .number {
+                        font-size: 72px;
+                        font-family: SFUR;
+                    }
+                    .divide {
+                        font-size: 48px;
+                        font-family: SFUR;
+                    }
+                    .total {
+                        font-size: 48px;
+                        color: #ddd;
+                        font-family: SFUR;
+                    }
+                    .description_sumenh {
+                        display: none;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        z-index: 10;
+                        h2 {
+                            font-size: 40px;
+                            color: $black-cl;
+                            text-transform: uppercase;
+                            width: 100%;
+                            font-family: SFUR;
+                            letter-spacing: 2.4px;
+                            margin-bottom: 30px;
+                        }
+                        p {
+                            font-size: 20px;
+                            width: 100%;
+                            font-family: UTMR;
+                            letter-spacing: 0.88px;
+                        }
+                    }
+                    .active {
+                        display: block;
+                    }
+                    &-img {
+                        position: absolute;
+                        right: -50%;
+                        width: 100%;
+                        &-list {
+                            width: 100%;
+                            height: 450px;
+                            .list {
+                                height: 100%;
+                                width: 100%;
+                            }
+                            img {
+                                // @include centerImage();
+                                height: 100%;
+                                width: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                }
+                .control {
+                    display: flex;
+                    position: absolute;
+                    left: -60px;
+                    bottom: 0;
+                    z-index: 10;
+                    div {
+                        background-color: $red-cl;
+                        padding: 15px;
+                    }
+                    .next,
+                    .prev {
+                        cursor: pointer;
+                    }
+                    .vach-ngan {
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+            @include sm {
+                &.active {
+                    &::before {
+                        content: "";
+                        width: 100px;
+                        @include transition(0.5s);
+                    }
+                }
+                &::before {
+                    top: 12%;
+                    content: "";
+                }
+                .container {
+                    display: block;
+                    margin-top: 50px;
+                    .su-menh-des {
+                        width: 100%;
+                        height: 100%;
+                        .description_sumenh {
+                            position: relative;
+                            margin-top: 0px;
+                            transform: translateY(-30%);
+                        }
+                        &-img {
+                            position: relative;
+                            width: 100%;
+                            top: 60px;
+                            right: 0;
+                            .su-menh-des-img-list {
+                                width: 100%;
+                                height: 450px;
+                            }
+                            img {
+                                object-fit: cover;
+                                overflow: hidden;
+                                width: 100%;
+                                height: 100%;
+                            }
+                            .control {
+                                left: 0;
+                                bottom: 0;
+                                z-index: 10;
+                                .vach-ngan {
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            @include xs {
+                &.active {
+                    &::before {
+                        content: "";
+                        width: 50px;
+                        @include transition(0.5s);
+                    }
+                }
+                &::before {
+                    top: 13%;
+                    content: "";
+                }
+                .container {
+                    display: block;
+                    margin-top: 50px;
+                    .su-menh-des {
+                        width: 100%;
+                        height: 100%;
+                        .description_sumenh {
+                            position: relative;
+                            margin-top: 0px;
+                            transform: translateY(-30%);
+                            h2 {
+                                font-size: 24px;
+                                letter-spacing: 0.96px;
+                                margin-bottom: 10px;
+                            }
+                            p {
+                                font-size: 12px;
+                                letter-spacing: 0.48px;
+                                width: 100%;
+                            }
+                        }
+                        &-img {
+                            position: relative;
+                            width: 100%;
+                            top: 60px;
+                            right: 0;
+                            .su-menh-des-img-list {
+                                width: 100%;
+                                height: 250px;
+                            }
+                            img {
+                                object-fit: cover;
+                                overflow: hidden;
+                                width: 100%;
+                                height: 100%;
+                            }
+                            .control {
+                                div {
+                                    background-color: $red-cl;
+                                    padding: 10px;
+                                }
+                                .next,
+                                .prev {
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        overflow: hidden;
+                                    }
+                                }
+                                left: 0;
+                                bottom: 0;
+                                z-index: 10;
+                                .vach-ngan {
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include xs {
+            .sumenh {
+                margin-top: 0;
+                .container {
+                    margin-top: 0;
+                    .su-menh-des {
+                        .paging__number {
+                            margin-top: 10px;
+                            .number {
+                                font-size: 40px;
+                            }
+                            .divide {
+                                font-size: 30px;
+                            }
+                            .total {
+                                font-size: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .chonxecatinh {
+        background-image: url(/img/bannerchonxecatinh.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
+        overflow: hidden;
+        &-des {
+            padding: 50px 0;
+        }
+        @include xs {
+            margin-top: 120px;
+            height: 250px;
+            &-des {
+                padding-top: 20px;
+                padding-bottom: 10px;
+            }
+        }
+    }
+    .su-menh-des .description_sumenh .title,
+    .su-menh-des .description_sumenh .des {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY-(50px);
+    }
+    .active .description_sumenh .title,
+    .active .description_sumenh .des {
+        opacity: 1;
+        visibility: visible;
+        transition: 0.2s;
+        transform: translateY(60px);
+        transition-delay: calc(var(--delay));
+    }
+}

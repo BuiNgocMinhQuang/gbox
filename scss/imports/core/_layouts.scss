@@ -1,0 +1,111 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+header {
+    font-family: UTMR;
+    font-size: 16px;
+}
+
+html,
+body {
+    font-family: UTMR;
+    font-size: 16px;
+    width: 100%;
+    max-width: $max-width;
+    -webkit-font-smoothing: antialiased;
+    margin: auto;
+    background: #fff;
+    scroll-behavior: smooth;
+    --pdSection: 80px;
+    main {
+        width: 100%;
+        margin: auto;
+        overflow: hidden;
+        section {
+            &.pd {
+                padding: var(--pdSection) 0;
+            }
+        }
+        @include sm {
+            section {
+                &.pd {
+                    padding: 50px 0;
+                }
+            }
+        }
+        @include xs {
+            section {
+                &.pd {
+                    padding: 30px 0;
+                }
+            }
+        }
+    }
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+    .container-fluid {
+        width: 100%;
+        padding-right: 30px;
+        padding-left: 30px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .mainwrapper {
+        width: 100%;
+        margin: auto;
+    }
+    @include lg {}
+    @include md {}
+    @include sm {
+        --pdSection: 50px;
+    }
+    @include xs {}
+    @include xxs {}
+    @media (min-width: 576px) {
+        .container {
+            max-width: 540px;
+        }
+    }
+    @media (min-width: 768px) {
+        .container {
+            max-width: 720px;
+        }
+    }
+    @media (min-width: 992px) {
+        .container {
+            max-width: 960px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .container {
+            max-width: $container-width;
+        }
+    }
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
