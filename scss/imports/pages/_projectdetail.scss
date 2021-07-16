@@ -1,0 +1,80 @@
+.projectdetailpage {
+    .top-info {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 60px;
+        padding-bottom: 40px;
+        .name-pro {
+            text-transform: uppercase;
+            position: absolute;
+            font-family: pr;
+            letter-spacing: 2.8px;
+            left: 0;
+        }
+        .fs-btn {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .back-to-all {
+            display: flex;
+            align-items: center;
+            margin-left: 100px;
+            p {
+                color: #000;
+            }
+            .btn-back {
+                transform: rotate(90deg);
+                margin-left: 30px;
+            }
+        }
+    }
+    .carousel-img {
+        position: relative;
+        .btn-full {
+            position: absolute;
+            top: -14%;
+            right: 18%;
+        }
+    }
+    .bot-info {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 40px;
+        div {
+            max-width: 33%;
+        }
+        &:last-child {
+            padding-right: 70px;
+        }
+    }
+    @include xs {
+        .top-info {
+            padding-right: 20px;
+            .name-pro {
+                left: 20px;
+            }
+            .fs-btn {
+                display: none;
+            }
+        }
+        .carousel-img {
+            .btn-full {
+                display: none;
+            }
+        }
+        .bot-info {
+            display: block;
+            div {
+                max-width: 100%;
+                padding: 15px;
+            }
+            &:last-child {
+                padding: 0;
+            }
+        }
+    }
+}

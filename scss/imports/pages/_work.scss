@@ -1,0 +1,68 @@
+.allwork {
+    .all-work {
+        position: relative;
+        .container {
+            position: relative;
+            .more {
+                width: 50%;
+                .title-all-work {
+                    @include centerAbsolute;
+                    text-align: center;
+                    padding-bottom: 100px;
+                    color: #000;
+                    font-family: pb;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                }
+            }
+            .more-moible {
+                display: none;
+            }
+        }
+    }
+    @include xs {
+        .all-work {
+            .container {
+                .more {
+                    display: none;
+                }
+                .booking-zone {
+                    width: 100%;
+                    display: block;
+                    .des-book {
+                        max-width: 100%;
+                        text-align: center;
+                    }
+                    .btn-book {
+                        margin: 10px auto;
+                    }
+                }
+                .more-moible {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 50px;
+                    align-items: center;
+                    .title-all-work {
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        transform: translate(0, 0);
+                        padding: 0;
+                    }
+                    i {
+                        margin-top: 20px;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        transform: translate(0, 0);
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.line-footer {
+    margin-top: 100px;
+}

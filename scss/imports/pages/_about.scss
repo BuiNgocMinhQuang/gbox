@@ -1,0 +1,73 @@
+.aboutpage {
+    background-image: url(../img/bg-about.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 50px;
+    .container {
+        .text-box {
+            width: 80%;
+            .des-about {
+                font-size: 14px;
+                font-family: pr;
+                color: #e4e4e4;
+                letter-spacing: -0.35px;
+                line-height: 20pt;
+            }
+            .booking-zone {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                margin-top: 50px;
+                .des-book {
+                    max-width: 60%;
+                    text-align: left;
+                    font-size: 14px;
+                    font-family: pr;
+                    color: #e4e4e4;
+                }
+                .btn-book {
+                    max-width: 100%;
+                    width: 100px;
+                    height: 100px;
+                    margin-right: 15px;
+                    border-radius: 10px;
+                    position: relative;
+                    text-align: center;
+                    background-color: $yl-cl;
+                    a {
+                        @include centerAbsolute;
+                        color: $black-cl;
+                        text-transform: uppercase;
+                        font-family: pb;
+                        .book {
+                            font-size: 24px;
+                        }
+                        .now {
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include xs {
+        background-image: url(../img/bg-about-moible.jpg) no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        padding: 50px 0;
+        .container {
+            padding: 0 20px;
+            .text-box {
+                width: 100%;
+            }
+        }
+    }
+}
+
+header {
+    @include xs {
+        height: 100%;
+    }
+}

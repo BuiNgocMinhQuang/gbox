@@ -1,0 +1,159 @@
+.studio-body {
+    .container {
+        .list-studio {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 70px 20px;
+            .studio {
+                transition: all $t;
+                color: #000;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                &-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: relative;
+                    z-index: 1;
+                    img {
+                        @include centerImage;
+                        @include transition($t);
+                        object-fit: cover;
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        z-index: 5;
+                        background-color: black;
+                        opacity: 0.5;
+                        transition: $t;
+                    }
+                }
+                &-info {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    align-items: center;
+                    position: relative;
+                    transition: $t;
+                    &-number {
+                        width: 120px;
+                        height: 120px;
+                        background-color: $yl-cl;
+                        position: relative;
+                        @include xs {
+                            width: 75px;
+                            height: 75px;
+                        }
+                        .text-box {
+                            display: flex;
+                            width: 100%;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            .title-st {
+                                font-size: 12px;
+                                font-family: pr;
+                                text-transform: uppercase;
+                            }
+                            .number {
+                                font-family: glb;
+                                font-size: 62px;
+                                @include xs {
+                                    padding-top: 10px;
+                                    font-size: 34px;
+                                }
+                            }
+                            @include xs {}
+                        }
+                    }
+                    &-des {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        height: 50%;
+                        .des {
+                            line-height: 1.5;
+                            font-size: 12px;
+                        }
+                        @include xs {
+                            height: 80%;
+                        }
+                    }
+                    &-details {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        padding-right: 30px;
+                        .title-studio {
+                            margin-top: -20px;
+                            font-family: pb;
+                            margin-bottom: 0;
+                        }
+                        @include xs {
+                            padding-right: 0;
+                            .title-studio {
+                                display: none;
+                            }
+                            .btn-detail {
+                                transform: rotate(-90deg);
+                            }
+                        }
+                    }
+                }
+                &:hover {
+                    transition: all $t;
+                    transform: scale(1.02);
+                    .studio-img {
+                        @include transition($t);
+                        &::before {
+                            content: "";
+                            display: none;
+                            transition: $t;
+                        }
+                    }
+                    .studio-info {
+                        transition: $t;
+                        background-color: #525355;
+                        &-des,
+                        &-details {
+                            color: #fff;
+                            .btn-detail {
+                                filter: invert(79%) sepia(18%) saturate(3056%) hue-rotate(6deg) brightness(107%) contrast(97%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include xs {
+        .container {
+            padding: 20px;
+            .list-studio {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+            }
+        }
+    }
+}
+
+footer {
+    @include xs {
+        .container {
+            .line-footer {
+                margin-top: 30px;
+            }
+        }
+    }
+}
